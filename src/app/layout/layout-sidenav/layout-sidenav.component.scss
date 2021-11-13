@@ -1,0 +1,71 @@
+@import '/src/assets/scss/colors';
+@import '/src/assets/scss/variables';
+
+.sidenav {
+    height: 100%;
+    width: 100%;
+    background-color: $sidenav-bg;
+    box-shadow: 0 0 10px rgb(24 28 33 / 5%);
+    transition: width .4s;
+}
+
+.brand {
+    height: $navbar-height;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.fa-bars {
+    font-size: 1.3em;
+    color: #a3a4a6;
+
+    &:hover {
+        color: #4e5155;
+        cursor: pointer;
+    }
+}
+
+.menu {
+    list-style: none;
+    margin-top: 1em;
+    & li {
+        cursor: pointer;
+        color: #a3a4a6;
+        transition: color .2s;
+        padding: 0.8em 0.8em 0.8em 1.6em;
+        & i {
+            margin-right: 10px;
+        }
+
+        &:hover {
+            color: #4e5155;
+        }
+
+        &.active {
+            color: #4e5155;
+            & i {
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+.sidenav-dropdown-menu {
+    & .dropdown {
+        display: none;
+        opacity: 0;
+    }
+
+    &.open {
+        & .dropdown {
+            display: block;
+            opacity: 100;
+        }
+    }
+}
+
+.dropdown {
+    list-style-type: none;
+    padding-left: 0.3em;
+    margin-top: 10px;
+    transition: all .5s;
+}

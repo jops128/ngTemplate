@@ -1,0 +1,25 @@
+@import '/src/assets/scss/colors';
+@import '/src/assets/scss/variables';
+
+.layout-content {
+    background-color: $body-bg;
+    height: $body-height
+}
+
+.layout {
+    height: 100vh;
+}
+
+.layout-main {
+    height: 100%;
+}
+
+
+#sidenav-wrapper {
+    transition: width .4s;
+}
+
+
+#main-wrapper {
+    transition: width .4s;
+}

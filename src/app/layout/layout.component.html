@@ -1,0 +1,18 @@
+<div class="container-fluid layout">
+    <div class="row h-100">
+        <div class="col-md-2 p-0 d-none d-md-block" id="sidenav-wrapper">
+            <app-layout-sidenav></app-layout-sidenav>
+        </div>
+        <div class="col-md-10 p-0" id="main-wrapper">
+            <app-layout-navbar></app-layout-navbar>
+
+            <div class="layout-content">
+                <div class="container-fluid py-3 px-3 layout-main">
+                    <router-outlet></router-outlet>
+                </div>
+
+            </div>
+            <app-layout-footer></app-layout-footer>
+        </div>
+    </div>
+</div>

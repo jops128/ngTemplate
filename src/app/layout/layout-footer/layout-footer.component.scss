@@ -1,0 +1,8 @@
+@import '/src/assets/scss/colors';
+@import '/src/assets/scss/variables';
+
+.footer {
+    height: $footer-height;
+    background-color: $footer-bg;
+    box-shadow: 0 0 10px rgb(24 28 33 / 5%);
+}
