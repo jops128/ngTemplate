@@ -12,4 +12,9 @@ export class LayoutNavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  toggleNav() {
+      const sidenav = document.getElementById('sidenav-wrapper');
+      sidenav.classList.contains('mobile-expanded') ? sidenav.classList.remove('mobile-expanded') : sidenav.classList.add('mobile-expanded')
+  }
+
 }

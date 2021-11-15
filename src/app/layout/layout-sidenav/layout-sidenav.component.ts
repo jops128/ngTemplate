@@ -37,11 +37,11 @@ export class LayoutSidenavComponent implements OnInit {
         mainWrapper.style.width = this.isExpanded ? '' : 'calc(100% - 4.375rem)';
 
         if (!this.isExpanded) {
+            sidenav.classList.add('collapsed')
             this.visibleTitle = false;
         } else {
-            setTimeout(() => {
-                this.visibleTitle = true
-            }, 400);
+            sidenav.classList.remove('collapsed')
+            this.visibleTitle = true
         }
     }
 

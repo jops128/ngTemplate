@@ -1,12 +1,33 @@
-@import '/src/assets/scss/colors';
-@import '/src/assets/scss/variables';
+@import "/src/assets/scss/colors";
+@import "/src/assets/scss/variables";
 
 .sidenav {
     height: 100%;
     width: 100%;
     background-color: $sidenav-bg;
     box-shadow: 0 0 10px rgb(24 28 33 / 5%);
-    transition: width .4s;
+    transition: width 0.4s;
+
+    &.collapsed .dropdown li {
+        margin-left: -30px;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0em;
+            left: 1.6em;
+            width: 1em;
+            height: 0.1em;
+            background: $menu-items;
+            z-index: 0;
+            transform: rotate(90deg);
+        }
+
+        &.active::before {
+            background: $primary-color !important;
+        }
+    }
 }
 
 .brand {
@@ -16,10 +37,10 @@
 
 .fa-bars {
     font-size: 1.3em;
-    color: #a3a4a6;
+    color: $menu-items;
 
     &:hover {
-        color: #4e5155;
+        color: $menu-hover;
         cursor: pointer;
     }
 }
@@ -28,20 +49,21 @@
     list-style: none;
     margin-top: 1em;
     & li {
+        white-space: nowrap;
         cursor: pointer;
-        color: #a3a4a6;
-        transition: color .2s;
+        color: $menu-items;
+        transition: color 0.2s;
         padding: 0.8em 0.8em 0.8em 1.6em;
         & i {
             margin-right: 10px;
         }
 
         &:hover {
-            color: #4e5155;
+            color: $menu-hover;
         }
 
         &.active {
-            color: #4e5155;
+            color: $menu-hover;
             & i {
                 color: $primary-color;
             }
@@ -52,13 +74,11 @@
 .sidenav-dropdown-menu {
     & .dropdown {
         display: none;
-        opacity: 0;
     }
 
     &.open {
         & .dropdown {
             display: block;
-            opacity: 100;
         }
     }
 }
@@ -67,5 +87,9 @@
     list-style-type: none;
     padding-left: 0.3em;
     margin-top: 10px;
-    transition: all .5s;
+    transition: all 0.5s;
+
+    & li {
+        transition: margin 0.4s;
+    }
 }

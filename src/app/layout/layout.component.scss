@@ -14,9 +14,23 @@
     height: 100%;
 }
 
+@media only screen and (max-width: 768px) {
+    #main-wrapper {
+        width: 100% !important;
+    }
+}
+
 
 #sidenav-wrapper {
     transition: width .4s;
+
+    &.mobile-expanded {
+        display: inline !important;
+        position: absolute;
+        z-index: 99;
+        width: 16em;
+        height: 100%;
+    }
 }
 
 
