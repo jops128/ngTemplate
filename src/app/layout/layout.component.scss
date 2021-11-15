@@ -24,6 +24,10 @@
 #sidenav-wrapper {
     transition: width .4s;
 
+    &.collapsed {
+        width: $collapsed-width;
+    }
+
     &.mobile-expanded {
         display: inline !important;
         position: absolute;
@@ -36,4 +40,8 @@
 
 #main-wrapper {
     transition: width .4s;
+
+    &.collapsed {
+        width: calc(100% - $collapsed-width);
+    }
 }

@@ -1,0 +1,10 @@
+<li #dropdown class="sidenav-dropdown-menu" [class.open]="isMenuOpen(isOpen)">
+    <i *ngIf="icon" [class]="icon"></i>
+    <div class="title d-inline-block w-100 position-relative">{{ title }}
+        <span class="fa-sm mt-2 position-absolute icon me-3"></span>
+    </div>
+
+    <ul class="dropdown">
+        <ng-content></ng-content>
+    </ul>
+</li>

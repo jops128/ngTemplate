@@ -1,7 +1,7 @@
-<div class="sidenav" id="sidenav-bar">
+<div class="sidenav extended" id="sidenav-bar">
     <div class="brand">
         <div class="row h-100 px-3">
-            <div *ngIf="visibleTitle" class="col d-flex align-items-center">
+            <div class="col d-flex align-items-center logo">
                 <img src="https://techresources.hr/assets/img/logo/TR-logo-web-01.svg"
                     height="35px" alt="logo">
             </div>
@@ -12,51 +12,17 @@
     </div>
 
     <div class="menu">
-        <li class="sidenav-item" routerLink="/" [class.active]="isActive('/')">
-            <i class="fas fa-home"></i> 
-            <span *ngIf="visibleTitle" class="title">Home</span> 
-        </li>
-        <li class="sidenav-item" routerLink="/test" [class.active]="isActive('/test')">
-            <i class="fas fa-cog"></i>
-            <span *ngIf="visibleTitle" class="title">Test</span>
-        </li>
+        <sidenav-link link="/" icon="fas fa-home">Home</sidenav-link>
+        <sidenav-link link="/test" icon="fas fa-cog">Test</sidenav-link>
 
-        <li class="sidenav-dropdown-menu" [class.open]="isMenuOpen('/list')">
-            <i class="fas fa-list"></i>
-            <span [hidden]="!visibleTitle" class="title">List
-                <i class="fas fa-chevron-left float-end fa-sm mt-2"></i>
-            </span>
+        <sidenav-menu icon="fas fa-list" title="List" [isOpen]="'/list'">
+            <sidenav-link link="/list/tennis" icon="fas fa-table-tennis">Tennis</sidenav-link>
+            <sidenav-link link="/list/baseball" icon="fas fa-baseball-ball">Baseball</sidenav-link>
+        </sidenav-menu>
 
-            <ul class="dropdown">
-                <li class="child-list-item" routerLink="/list/tennis" [class.active]="isActive('/list/tennis')">
-                    <i class="fas fa-table-tennis"></i> 
-                    <span *ngIf="visibleTitle" class="title">Tennis</span> 
-                </li>
-                <li class="child-list-item" routerLink="/list/baseball" [class.active]="isActive('/list/baseball')">
-                    <i class="fas fa-baseball-ball"></i>
-                    <span *ngIf="visibleTitle" class="title">Baseball</span>
-                </li>
-            </ul>
-        </li>
-
-        <li class="sidenav-dropdown-menu">
-            <i class="fas fa-list"></i>
-            <span *ngIf="visibleTitle" class="title">List 2
-                <i class="fas fa-chevron-left float-end fa-sm mt-2"></i>
-            </span>
-
-            <ul class="dropdown">
-                <li routerLink="/" [class.active]="isActive('/tennis')">
-                    <i class="fas fa-table-tennis"></i> 
-                    <span *ngIf="visibleTitle" class="title">Tennis</span> 
-                </li>
-                <li routerLink="/test" [class.active]="isActive('/baseball')">
-                    <i class="fas fa-baseball-ball"></i>
-                    <span *ngIf="visibleTitle" class="title">Baseball</span>
-                </li>
-            </ul>
-        </li>
-        <ul class="dropdown">
-        </ul>
+        <sidenav-menu icon="fas fa-list" title="Second" [isOpen]="'/second'">
+            <sidenav-link link="/second/volleyball" icon="fas fa-volleyball-ball">Volleyball</sidenav-link>
+            <sidenav-link link="/second/football" icon="fas fa-futbol">Football</sidenav-link>
+        </sidenav-menu>
     </div>
 </div>

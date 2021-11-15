@@ -8,24 +8,49 @@
     box-shadow: 0 0 10px rgb(24 28 33 / 5%);
     transition: width 0.4s;
 
-    &.collapsed .dropdown li {
-        margin-left: -30px;
-        position: relative;
-
-        &::before {
-            content: "";
-            position: absolute;
-            top: 0em;
-            left: 1.6em;
-            width: 1em;
-            height: 0.1em;
-            background: $menu-items;
-            z-index: 0;
-            transform: rotate(90deg);
+    &.extended {
+        & .sidenav-item .title,
+        .sidenav-dropdown-menu .title {
+            transition: all 0.4s;
         }
 
-        &.active::before {
-            background: $primary-color !important;
+        & .logo {
+            display: flex !important;
+        }
+    }
+
+    &.collapsed {
+        width: $collapsed-width;
+
+        & .logo {
+            display: none !important;
+        }
+
+        & .dropdown li {
+            margin-left: -30px;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0em;
+                left: 1.6em;
+                width: 1em;
+                height: 0.1em;
+                background: $menu-items;
+                z-index: 0;
+                transform: rotate(90deg);
+            }
+
+            &.active::before {
+                background: $primary-color !important;
+            }
+        }
+
+        & .sidenav-item .title,
+        .sidenav-dropdown-menu .title {
+            margin-left: 50px;
+            transition: all 0.4s;
         }
     }
 }
@@ -72,13 +97,37 @@
 }
 
 .sidenav-dropdown-menu {
+    overflow: hidden;
     & .dropdown {
-        display: none;
-    }
+        max-height: 0;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        transition: all .3s;
+        overflow: hidden;
+      }
 
     &.open {
         & .dropdown {
-            display: block;
+            margin-top: 10px;
+            margin-bottom: 1rem;
+            max-height: 500px;
+        }
+
+        & .title {
+            & .icon::after {
+                content: '\f078';
+            }
+        }
+    }
+
+    & .title {
+        & .icon::after {
+            content: '\f053';
+            font-family: 'fontawesome';
+        }
+        & .icon {
+            right: 20px;
+            top: -2px;
         }
     }
 }
@@ -86,8 +135,6 @@
 .dropdown {
     list-style-type: none;
     padding-left: 0.3em;
-    margin-top: 10px;
-    transition: all 0.5s;
 
     & li {
         transition: margin 0.4s;

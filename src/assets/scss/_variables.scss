@@ -1,4 +1,6 @@
 $navbar-height: 70px;
 $footer-height: 60px;
 
-$body-height: calc(100% - ($navbar-height + $footer-height))
+$body-height: calc(100% - ($navbar-height + $footer-height));
+
+$collapsed-width: 4.375rem;

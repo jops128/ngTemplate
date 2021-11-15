@@ -13,6 +13,10 @@ const routes: Routes = [
                 { path: 'tennis', component: TestComponent },
                 { path: 'baseball', component: TestComponent },
             ] },
+            { path: 'second', children: [
+                { path: 'volleyball', component: TestComponent },
+                { path: 'football', component: TestComponent },
+            ] },
         ]
     }
 ];

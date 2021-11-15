@@ -1,0 +1,6 @@
+<li class="sidenav-item" [routerLink]="link" [class.active]="isActive(link)">
+    <i *ngIf="icon" [class]="icon"></i> 
+    <span class="title">
+        <ng-content></ng-content>
+    </span> 
+</li>

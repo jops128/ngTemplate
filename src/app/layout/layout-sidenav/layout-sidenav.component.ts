@@ -28,18 +28,24 @@ export class LayoutSidenavComponent implements OnInit {
         this.isExpanded = !this.isExpanded;
 
         const sidenav = document.getElementById('sidenav-bar') as HTMLElement;
-        sidenav.style.width = this.isExpanded ? '' : '4.375rem';
-
         const sidenavWrapper = document.getElementById('sidenav-wrapper') as HTMLElement;
-        sidenavWrapper.style.width = this.isExpanded ? '' : '4.375rem';
-        
         const mainWrapper = document.getElementById('main-wrapper') as HTMLElement;
         mainWrapper.style.width = this.isExpanded ? '' : 'calc(100% - 4.375rem)';
 
         if (!this.isExpanded) {
+            sidenavWrapper.classList.add('collapsed')
+            sidenavWrapper.classList.remove('extended')
+            mainWrapper.classList.add('collapsed')
+            mainWrapper.classList.remove('extended')
             sidenav.classList.add('collapsed')
+            sidenav.classList.remove('extended')
             this.visibleTitle = false;
         } else {
+            sidenavWrapper.classList.add('extended')
+            sidenavWrapper.classList.remove('collapsed')
+            mainWrapper.classList.add('extended')
+            mainWrapper.classList.remove('collapsed')
+            sidenav.classList.add('extended')
             sidenav.classList.remove('collapsed')
             this.visibleTitle = true
         }
