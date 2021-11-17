@@ -7,6 +7,7 @@ import { LayoutSidenavComponent } from './layout-sidenav/layout-sidenav.componen
 import { LayoutFooterComponent } from './layout-footer/layout-footer.component';
 import { SidenavLinkComponent } from './layout-sidenav/sidenav-link/sidenav-link.component';
 import { SidenavMenuComponent } from './layout-sidenav/sidenav-menu/sidenav-menu.component';
+import { LayoutWithoutSidenavComponent } from './layout-without-sidenav/layout-without-sidenav.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { SidenavMenuComponent } from './layout-sidenav/sidenav-menu/sidenav-menu
     LayoutSidenavComponent,
     LayoutFooterComponent,
     SidenavLinkComponent,
-    SidenavMenuComponent
+    SidenavMenuComponent,
+    LayoutWithoutSidenavComponent
   ],
   imports: [
     CommonModule,

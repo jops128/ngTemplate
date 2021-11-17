@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
         <a class="navbar-brand">Angular Template</a>
-        <div class="col d-flex align-items-center d-block d-md-none" href="javascript:void(0)" (click)="toggleNav()">
+        <div *ngIf="!noSidenav" class="col d-flex align-items-center d-block d-md-none" href="javascript:void(0)" (click)="toggleNav()">
             <i class="fas fa-bars me-auto me-4"></i>
         </div>
 

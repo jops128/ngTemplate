@@ -1,0 +1,15 @@
+<div class="container-fluid layout">
+    <div class="row h-100">
+        <div class="col-md-12 p-0" id="main-wrapper">
+            <app-layout-navbar [noSidenav]="true"></app-layout-navbar>
+
+            <div class="layout-content">
+                <div class="container-fluid py-3 px-3 layout-main">
+                    <router-outlet></router-outlet>
+                </div>
+
+            </div>
+            <app-layout-footer></app-layout-footer>
+        </div>
+    </div>
+</div>
