@@ -1,5 +1,8 @@
-<li class="sidenav-item" [routerLink]="link" [class.active]="isActive(link)">
-    <i *ngIf="icon" [class]="icon"></i> 
+<li (click)="closeNav()" class="sidenav-item" [routerLink]="link" [class.active]="isActive(link)">
+    <i *ngIf="icon; else noIcon" [class]="icon"></i> 
+    <ng-template #noIcon>
+        <div class="icon-placeholder"></div>
+    </ng-template>
     <span class="title">
         <ng-content></ng-content>
     </span> 

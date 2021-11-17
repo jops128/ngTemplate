@@ -1,6 +1,12 @@
 @import "/src/assets/scss/colors";
 @import "/src/assets/scss/variables";
 
+@media only screen and (max-width: $medium-breakpoint) {
+    .sidenav {
+        display: block;
+    }
+}
+
 .sidenav {
     height: 100%;
     width: 100%;
@@ -8,7 +14,7 @@
     box-shadow: 0 0 10px rgb(24 28 33 / 5%);
     transition: width 0.4s;
 
-    &.extended {
+    &.expanded {
         & .sidenav-item .title,
         .sidenav-dropdown-menu .title {
             transition: all 0.4s;
@@ -52,6 +58,11 @@
             margin-left: 50px;
             transition: all 0.4s;
         }
+
+        & .sidenav-item .icon-placeholder::after {
+            content: '\f192';
+            font-family: fontawesome;
+        }
     }
 }
 
@@ -73,7 +84,27 @@
 .menu {
     list-style: none;
     margin-top: 1em;
+    height: calc(100vh - $navbar-height - 1em);
+    overflow: hidden;
+    transition: overflow .4s;
+    &:hover {
+        overflow-y: auto;
+    }
+
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(207, 207, 207, 0.986);
+        border-radius: 20px;
+    }
     & li {
+        overflow: hidden;
         white-space: nowrap;
         cursor: pointer;
         color: $menu-items;
@@ -89,7 +120,7 @@
 
         &.active {
             color: $menu-hover;
-            & i {
+            & i, .icon-placeholder {
                 color: $primary-color;
             }
         }
@@ -102,32 +133,33 @@
         max-height: 0;
         margin-top: 0px;
         margin-bottom: 0px;
-        transition: all .3s;
+        transition: all 0.3s;
         overflow: hidden;
-      }
+    }
 
     &.open {
         & .dropdown {
             margin-top: 10px;
-            margin-bottom: 1rem;
+            margin-bottom: -0.5rem;
             max-height: 500px;
         }
 
         & .title {
-            & .icon::after {
-                content: '\f078';
+            & .icon {
+                transform: rotate(-90deg);
             }
         }
     }
 
     & .title {
         & .icon::after {
-            content: '\f053';
-            font-family: 'fontawesome';
+            content: "\f053";
+            font-family: "fontawesome";
         }
         & .icon {
             right: 20px;
             top: -2px;
+            transition: transform 0.3s;
         }
     }
 }
@@ -139,4 +171,15 @@
     & li {
         transition: margin 0.4s;
     }
+}
+
+.icon-placeholder {
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    margin-right: 10px;
+    // &::after {
+    //     content: '\f192';
+    //     font-family: fontawesome;
+    // }
 }

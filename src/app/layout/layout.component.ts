@@ -7,7 +7,6 @@ import { of } from 'rxjs';
     styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
-    constructor() { }
 
     ngOnInit(): void {
     }
@@ -15,6 +14,13 @@ export class LayoutComponent implements OnInit {
     @HostListener('window:resize', ['$event'])
     onResize(event) {
         console.log('window.innerWidth: ', window.innerWidth);
+    }
+
+    public closeNav() {
+        const sidenav = document.getElementById('sidenav-wrapper');
+        const overlay = document.getElementById('overlay');
+        sidenav.classList.remove('mobile-expanded');
+        overlay.classList.remove('active');
     }
 
 }

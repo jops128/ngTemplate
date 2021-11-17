@@ -22,4 +22,13 @@ export class SidenavLinkComponent implements OnInit {
         return this.router.isActive(route, true);
     }
 
+    public closeNav() {
+        if(window.innerWidth <= 768) {
+            const sidenav = document.getElementById('sidenav-wrapper');
+            const overlay = document.getElementById('overlay');
+            sidenav.classList.remove('mobile-expanded');
+            overlay.classList.remove('active');
+        }
+    }
+
 }

@@ -1,9 +1,9 @@
-@import '/src/assets/scss/colors';
-@import '/src/assets/scss/variables';
+@import "/src/assets/scss/colors";
+@import "/src/assets/scss/variables";
 
 .layout-content {
     background-color: $body-bg;
-    height: $body-height
+    height: $body-height;
 }
 
 .layout {
@@ -14,32 +14,47 @@
     height: 100%;
 }
 
-@media only screen and (max-width: 768px) {
-    #main-wrapper {
-        width: 100% !important;
+#overlay {
+    transition: all 0.2s;
+    &.active {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 2;
+        background: rgb(0 0 0 / 41%);
+        top: 0;
+        left: 0;
     }
 }
 
+@media only screen and (max-width: $medium-breakpoint) {
+    #main-wrapper {
+        width: 100% !important;
+    }
+
+    #sidenav-wrapper {
+        position: absolute;
+        height: 100%;
+        width: 260px;
+        z-index: 3;
+        left: -260px;
+    }
+}
 
 #sidenav-wrapper {
-    transition: width .4s;
+    transition: all 0.4s;
 
     &.collapsed {
         width: $collapsed-width;
     }
 
     &.mobile-expanded {
-        display: inline !important;
-        position: absolute;
-        z-index: 99;
-        width: 16em;
-        height: 100%;
+        left: 0;
     }
 }
 
-
 #main-wrapper {
-    transition: width .4s;
+    transition: width 0.4s;
 
     &.collapsed {
         width: calc(100% - $collapsed-width);

@@ -14,7 +14,14 @@ export class LayoutNavbarComponent implements OnInit {
 
   toggleNav() {
       const sidenav = document.getElementById('sidenav-wrapper');
-      sidenav.classList.contains('mobile-expanded') ? sidenav.classList.remove('mobile-expanded') : sidenav.classList.add('mobile-expanded')
+      const overlay = document.getElementById('overlay');
+      if(sidenav.classList.contains('mobile-expanded')) {
+          sidenav.classList.remove('mobile-expanded');
+          overlay.classList.remove('active');
+      } else {
+          sidenav.classList.add('mobile-expanded')
+          overlay.classList.add('active');
+      }
   }
 
 }
